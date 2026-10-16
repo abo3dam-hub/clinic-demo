@@ -90,7 +90,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal)}
 
 <header>
   <div class="nav">
-    <div class="logo"><span data-clinic>عيادة النور</span><small>للتجميل والعناية بالبشرة</small></div>
+    <div class="logo"><span data-clinic>La Derma Clinic</span><small>للتجميل والعناية بالبشرة</small></div>
     <div>
       <a href="#services">خدماتنا</a>
       <a href="#about">من نحن</a>
@@ -102,7 +102,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal)}
 
 <div class="hero">
   <div class="hero-inner">
-    <h1>أهلاً بك في <span data-clinic>عيادة النور</span></h1>
+    <h1>أهلاً بك في <span data-clinic>La Derma Clinic</span></h1>
     <p>وجهتك الأولى للعناية بالبشرة والتجميل غير الجراحي — أحدث الأجهزة، أطباء مختصون، ونتائج تتكلم عن نفسها.</p>
     <div class="cta-row">
       <a href="#" class="btn wa" onclick="openModal(event)">احجز عبر واتساب</a>
@@ -139,7 +139,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal)}
   <div class="about">
     <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=60" alt="العيادة">
     <div>
-      <h2>لماذا <span data-clinic>عيادة النور</span>؟</h2>
+      <h2>لماذا <span data-clinic>La Derma Clinic</span>؟</h2>
       <p>منذ افتتاحنا ونحن نضع ثقة مرضانا أولاً: أجهزة حديثة معتمدة، مواد أصلية 100%، وشفافية كاملة بالأسعار قبل أي إجراء.</p>
       <p>احجز استشارتك الأولى اليوم وشوف الفرق بنفسك.</p>
       <a href="#" class="btn wa" onclick="openModal(event)">احجز استشارتك عبر واتساب</a>
@@ -148,7 +148,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal)}
 </section>
 
 <footer id="contact">
-  <div class="logo" style="font-size:26px"><span data-clinic>عيادة النور</span></div>
+  <div class="logo" style="font-size:26px"><span data-clinic>La Derma Clinic</span></div>
   <p style="margin:12px 0">للاستفسار والحجز: اتصل بنا أو راسلنا واتساب في أي وقت</p>
   <a href="#" class="btn wa" onclick="openModal(event)">تواصل واتساب</a>
   <p style="margin-top:24px;font-size:13px;opacity:.6">صفحة ديمو تجريبية — جميع الصور والنصوص لأغراض العرض فقط</p>
@@ -193,7 +193,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal)}
       <h2>معاينة رسالة الواتساب</h2>
       <p class="sub">هكذا ستصل الرسالة إلى واتساب العيادة — مرتبة وجاهزة</p>
       <div class="wa-preview">
-        <div class="wa-head"><div class="av">💬</div><span data-clinic>عيادة النور</span></div>
+        <div class="wa-head"><div class="av">💬</div><span data-clinic>La Derma Clinic</span></div>
         <div class="wa-body"><div class="msg"><span id="waText"></span><div class="t">الآن ✓✓</div></div></div>
       </div>
       <div class="demo-note">معاينة تجريبية — في النسخة الحقيقية تُفتح هذه الرسالة في واتساب على رقم العيادة مباشرة</div>
@@ -227,6 +227,25 @@ function submitBooking(e){
   document.getElementById('waView').style.display='block';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
+<script>
+/* Demo-open tracking (2026-10-15): fire-and-forget ping so Ali can see which
+   clinic opened its personalized demo link. No cookies, no PII — the server
+   only stores the clinic slug + timestamp (+hashed IP for country, same as the
+   clinic site's own analytics). One ping per browser tab session. */
+(function(){try{
+  var m=location.pathname.match(/\/clinic-demo\/([a-z0-9-]+)\/?(?:[?#]|$)/);
+  if(!m)return;
+  var slug=m[1];
+  if(sessionStorage.getItem('demo_open_logged')===slug)return;
+  sessionStorage.setItem('demo_open_logged',slug);
+  fetch('https://kindly-anaconda-422.convex.site/trackVisit',{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=UTF-8'},
+    body:JSON.stringify({type:'demo_open',label:slug,path:'/demo/'+slug}),
+    keepalive:true
+  }).catch(function(){});
+}catch(e){}})();
 </script>
 </body>
 </html>
