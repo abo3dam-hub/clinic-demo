@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:site_name" content="معاينة تصميم موقع عيادة">
+<meta property="og:title" content="أهلاً بك في Dr. Zen Abdulal">
+<meta property="og:description" content="معاينة مجانية أُعدّت خصيصاً لـDr. Zen Abdulal: هكذا يمكن أن يبدو موقع العيادة — زر حجز عبر واتساب بطلبات مرتبة.">
+<meta property="og:image" content="https://abo3dam-hub.github.io/clinic-demo/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Dr. Zen Abdulal | احجز موعدك</title>
+
+
+<style>
+:root{--teal:#0d9488;--teal-d:#0b7c72;--dark:#123332;--bg:#f6faf9;--card:#ffffff;--mut:#5b6f6e;--wa:#25d366}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans Arabic','Noto Kufi Arabic',sans-serif;background:var(--bg);color:#1e2b2a;line-height:1.7}
+.demo-bar{background:#7c2d12;color:#fff;text-align:center;padding:8px 12px;font-size:14px;font-weight:600}
+.demo-bar b{background:#fff;color:#7c2d12;border-radius:20px;padding:1px 10px;margin-inline-start:8px;font-size:12px}
+header{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06);position:sticky;top:0;z-index:50}
+.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.logo{font-weight:800;font-size:22px;color:var(--teal-d)}
+.logo small{display:block;font-size:12px;color:var(--mut);font-weight:400}
+.nav a{text-decoration:none;color:#1e2b2a;font-weight:600;margin-inline-start:22px;font-size:15px}
+.btn{display:inline-block;background:var(--teal);color:#fff!important;border:none;border-radius:30px;padding:12px 30px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;transition:.2s;font-family:inherit}
+.btn:hover{background:var(--teal-d);transform:translateY(-2px)}
+.btn.wa{background:var(--wa)}
+.hero{position:relative;min-height:520px;display:flex;align-items:center;color:#fff;
+background:linear-gradient(rgba(10,40,38,.72),rgba(10,40,38,.55)),url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=60') center/cover}
+.hero-inner{max-width:1100px;margin:auto;padding:70px 20px;width:100%}
+.hero h1{font-size:clamp(30px,5vw,52px);font-weight:800;margin-bottom:14px}
+.hero p{font-size:18px;max-width:560px;margin-bottom:28px;opacity:.95}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+section{max-width:1100px;margin:auto;padding:64px 20px}
+.sec-title{text-align:center;margin-bottom:8px}
+.sec-title h2{font-size:30px;font-weight:800;color:var(--dark)}
+.sec-title p{color:var(--mut);margin-bottom:34px}
+.badge{display:inline-block;background:#fef3c7;color:#92400e;border:1px dashed #d97706;border-radius:20px;padding:3px 14px;font-size:13px;font-weight:600;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--card);border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.06);transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,.1)}
+.card img{width:100%;height:170px;object-fit:cover}
+.card .pad{padding:20px}
+.card h3{font-size:19px;margin-bottom:6px;color:var(--dark)}
+.card p{color:var(--mut);font-size:14px}
+.strip{background:var(--dark);color:#fff}
+.strip .grid{max-width:1100px;margin:auto}
+.feat{text-align:center;padding:10px}
+.feat .ic{font-size:38px;margin-bottom:8px}
+.feat h3{font-size:18px;margin-bottom:4px}
+.feat p{opacity:.75;font-size:14px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.about img{width:100%;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.about h2{font-size:28px;margin-bottom:12px;color:var(--dark)}
+.about p{color:var(--mut);margin-bottom:16px}
+footer{background:#0c2423;color:#cfe3e1;text-align:center;padding:40px 20px}
+footer .logo{color:#fff}
+.fab{position:fixed;bottom:24px;left:24px;width:62px;height:62px;border-radius:50%;background:var(--wa);
+display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.3);cursor:pointer;z-index:60;border:none}
+.fab svg{width:32px;height:32px;fill:#fff}
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;max-width:480px;width:100%;max-height:92vh;overflow-y:auto;padding:28px;position:relative}
+.modal h2{font-size:22px;margin-bottom:4px;color:var(--dark)}
+.modal .sub{color:var(--mut);font-size:14px;margin-bottom:18px}
+.close{position:absolute;top:14px;left:16px;background:none;border:none;font-size:26px;cursor:pointer;color:#999}
+label{display:block;font-weight:600;margin:12px 0 6px;font-size:15px}
+input,select,textarea{width:100%;border:1.5px solid #d5e2e1;border-radius:12px;padding:11px 14px;font-size:15px;font-family:inherit;background:#fbfdfe}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal)}
+.modal .btn{width:100%;margin-top:18px}
+/* fake whatsapp preview */
+.wa-preview{background:#0b141a;border-radius:16px;overflow:hidden;margin-top:6px}
+.wa-head{background:#1f2c34;color:#e9edef;padding:12px 16px;font-weight:700;display:flex;align-items:center;gap:10px}
+.wa-head .av{width:38px;height:38px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
+.wa-body{padding:18px 14px;min-height:180px;background:#0b141a url('') }
+.msg{background:#005c4b;color:#e9edef;border-radius:12px;padding:12px 14px;max-width:88%;font-size:15px;white-space:pre-line;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.msg .t{text-align:left;font-size:11px;opacity:.7;margin-top:6px}
+.demo-note{background:#fff8e1;border:1px dashed #d97706;color:#92400e;border-radius:12px;padding:10px 14px;font-size:13px;margin-top:14px;text-align:center}
+@media(max-width:700px){.about{grid-template-columns:1fr}.nav a{display:none}}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">هذه صفحة ديمو تجريبية لأغراض العرض فقط <b>DEMO</b></div>
+
+<header>
+  <div class="nav">
+    <div class="logo"><span data-clinic>Dr. Zen Abdulal</span><small>للتجميل والعناية بالبشرة</small></div>
+    <div>
+      <a href="#services">خدماتنا</a>
+      <a href="#about">من نحن</a>
+      <a href="#contact">تواصل</a>
+      <a href="#" class="btn" style="padding:9px 22px" onclick="openModal(event)">احجز موعدك</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>أهلاً بك في <span data-clinic>Dr. Zen Abdulal</span></h1>
+    <p>وجهتك الأولى للعناية بالبشرة والتجميل غير الجراحي — أحدث الأجهزة، أطباء مختصون، ونتائج تتكلم عن نفسها.</p>
+    <div class="cta-row">
+      <a href="#" class="btn wa" onclick="openModal(event)">احجز عبر واتساب</a>
+      <a href="#services" class="btn" style="background:rgba(255,255,255,.18)">تصفح خدماتنا</a>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="sec-title">
+    <span class="badge">قسم قابل للتخصيص بالكامل حسب خدمات عيادتكم</span>
+    <h2>خدماتنا</h2>
+    <p>مجموعة متكاملة من الخدمات التجميلية بأيدي مختصين</p>
+  </div>
+  <div class="grid">
+    <div class="card"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=60" alt=""><div class="pad"><h3>تنظيف بشرة عميق</h3><p>جلسة تنظيف وتقشير متكاملة لنضارة فورية تدوم.</p></div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&q=60" alt=""><div class="pad"><h3>جلسات الليزر</h3><p>إزالة الشعر وتوحيد لون البشرة بأحدث أجهزة الليزر.</p></div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=60" alt=""><div class="pad"><h3>بوتوكس وفيلر</h3><p>حقن تجميلية دقيقة لنتيجة طبيعية بأيدي أطباء مختصين.</p></div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=800&q=60" alt=""><div class="pad"><h3>استشارة تجميلية</h3><p>تقييم شامل لبشرتك وخطة علاج مخصصة لك.</p></div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=60" alt=""><div class="pad"><h3>تقشير كيميائي</h3><p>تجديد خلايا البشرة وعلاج التصبغات والندب السطحية.</p></div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=60" alt=""><div class="pad"><h3>جلسات العناية الدورية</h3><p>برامج متابعة شهرية للحفاظ على نضارة بشرتك.</p></div></div>
+  </div>
+</section>
+
+<div class="strip"><section style="padding:48px 20px">
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+    <div class="feat"><div class="ic">📅</div><h3>حجز سهل عبر واتساب</h3><p>عبّئ النموذج وبتوصلك رسالة جاهزة — بلا انتظار على الهاتف</p></div>
+    <div class="feat"><div class="ic">👩‍⚕️</div><h3>أطباء مختصون</h3><p>فريق طبي بخبرة تتجاوز 10 سنوات في التجميل غير الجراحي</p></div>
+    <div class="feat"><div class="ic">✨</div><h3>متابعة بعد الجلسة</h3><p>نهتم فيك قبل الجلسة وبعدها لضمان أفضل نتيجة</p></div>
+  </div>
+</section></div>
+
+<section id="about">
+  <div class="about">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=60" alt="العيادة">
+    <div>
+      <h2>لماذا <span data-clinic>Dr. Zen Abdulal</span>؟</h2>
+      <p>منذ افتتاحنا ونحن نضع ثقة مرضانا أولاً: أجهزة حديثة معتمدة، مواد أصلية 100%، وشفافية كاملة بالأسعار قبل أي إجراء.</p>
+      <p>احجز استشارتك الأولى اليوم وشوف الفرق بنفسك.</p>
+      <a href="#" class="btn wa" onclick="openModal(event)">احجز استشارتك عبر واتساب</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="logo" style="font-size:26px"><span data-clinic>Dr. Zen Abdulal</span></div>
+  <p style="margin:12px 0">للاستفسار والحجز: اتصل بنا أو راسلنا واتساب في أي وقت</p>
+  <a href="#" class="btn wa" onclick="openModal(event)">تواصل واتساب</a>
+  <p style="margin-top:24px;font-size:13px;opacity:.6">صفحة ديمو تجريبية — جميع الصور والنصوص لأغراض العرض فقط</p>
+</footer>
+
+<button class="fab" onclick="openModal(event)" aria-label="واتساب">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.6 6.1 1.6h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.2 1.2-4.4-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6C7 9.9 11 6 16 6s9 4 9 8.9-4 9.9-9 9.9zm5-6.7c-.3-.1-1.6-.8-1.8-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.3.3-.7.1-.3-.1-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5L13.6 10c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.2-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.6-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+</button>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="formView">
+      <h2>احجز موعدك</h2>
+      <p class="sub">عبّئ البيانات التالية وسيتم تجهيز رسالة واتساب جاهزة للإرسال</p>
+      <span class="badge">الحقول قابلة للتخصيص حسب رغبتكم</span>
+      <form onsubmit="submitBooking(event)">
+        <label>الاسم الكامل</label>
+        <input required id="fName" placeholder="مثال: سارة أحمد">
+        <label>رقم الهاتف</label>
+        <input required id="fPhone" inputmode="tel" placeholder="مثال: 0950123456">
+        <label>الخدمة المطلوبة</label>
+        <select id="fService">
+          <option>تنظيف بشرة عميق</option>
+          <option>جلسة ليزر</option>
+          <option>بوتوكس</option>
+          <option>فيلر</option>
+          <option>تقشير كيميائي</option>
+          <option>استشارة تجميلية</option>
+        </select>
+        <label>اليوم المفضل</label>
+        <select id="fDay">
+          <option>السبت</option><option>الأحد</option><option>الاثنين</option>
+          <option>الثلاثاء</option><option>الأربعاء</option><option>الخميس</option>
+        </select>
+        <label>ملاحظات (اختياري)</label>
+        <textarea id="fNotes" rows="2" placeholder="أي تفاصيل إضافية..."></textarea>
+        <button class="btn wa" type="submit">تأكيد عبر واتساب</button>
+      </form>
+    </div>
+    <div id="waView" style="display:none">
+      <h2>معاينة رسالة الواتساب</h2>
+      <p class="sub">هكذا ستصل الرسالة إلى واتساب العيادة — مرتبة وجاهزة</p>
+      <div class="wa-preview">
+        <div class="wa-head"><div class="av">💬</div><span data-clinic>Dr. Zen Abdulal</span></div>
+        <div class="wa-body"><div class="msg"><span id="waText"></span><div class="t">الآن ✓✓</div></div></div>
+      </div>
+      <div class="demo-note">معاينة تجريبية — في النسخة الحقيقية تُفتح هذه الرسالة في واتساب على رقم العيادة مباشرة</div>
+      <button class="btn" style="background:#94a3b8" onclick="backToForm()">تعديل البيانات</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var p=new URLSearchParams(location.search).get('clinic');
+  var name=(p&&p.trim())?p.trim():'Dr. Zen Abdulal';
+  document.querySelectorAll('[data-clinic]').forEach(function(e){e.textContent=name;});
+  document.title=name+' | احجز موعدك';
+  window._clinic=name;
+})();
+function openModal(e){if(e)e.preventDefault();document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
+function backToForm(){document.getElementById('waView').style.display='none';document.getElementById('formView').style.display='block';}
+function submitBooking(e){
+  e.preventDefault();
+  var v=function(id){return document.getElementById(id).value.trim();};
+  var txt='طلب حجز موعد جديد\n'
+    +'الاسم: '+v('fName')+'\n'
+    +'الهاتف: '+v('fPhone')+'\n'
+    +'الخدمة: '+v('fService')+'\n'
+    +'اليوم المفضل: '+v('fDay')
+    +(v('fNotes')?'\nملاحظات: '+v('fNotes'):'');
+  document.getElementById('waText').textContent=txt;
+  document.getElementById('formView').style.display='none';
+  document.getElementById('waView').style.display='block';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
+<script>
+/* Demo-open tracking (2026-10-15): fire-and-forget ping so Ali can see which
+   clinic opened its personalized demo link. No cookies, no PII — the server
+   only stores the clinic slug + timestamp (+hashed IP for country, same as the
+   clinic site's own analytics). One ping per browser tab session. */
+(function(){try{
+  var m=location.pathname.match(/\/clinic-demo\/([a-z0-9-]+)\/?(?:[?#]|$)/);
+  if(!m)return;
+  var slug=m[1];
+  if(sessionStorage.getItem('demo_open_logged')===slug)return;
+  sessionStorage.setItem('demo_open_logged',slug);
+  fetch('https://kindly-anaconda-422.convex.site/trackVisit',{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=UTF-8'},
+    body:JSON.stringify({type:'demo_open',label:slug,path:'/demo/'+slug}),
+    keepalive:true
+  }).catch(function(){});
+}catch(e){}})();
+</script>
+</body>
+</html>
